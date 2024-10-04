@@ -23,8 +23,8 @@ def peak_per_hour_df(df):
     return peak_per_hour
 
 # ambil data yang sudah clean
-day_df = pd.read_csv("./day_clean.csv")
-hour_df = pd.read_csv("./hour_clean.csv")
+day_df = pd.read_csv("dashboard/day_clean.csv")
+hour_df = pd.read_csv("dashboard/hour_clean.csv")
 
 # sort by date
 day_df.sort_values(by="dteday", inplace=True)
