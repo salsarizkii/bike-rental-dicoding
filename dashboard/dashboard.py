@@ -50,10 +50,15 @@ with st.sidebar:
     
     # Mengambil start_date & end_date dari date_input
     start_date, end_date = st.date_input(
-        label='Rentang Waktu',min_value=day_min_date,
-        max_value=day_max_date,
-        value=[day_min_date, day_max_date]
+        label='Rentang Waktu',
+        min_value=day_min_date.date(),
+        max_value=day_max_date.date(),
+        value=[day_min_date.date(), day_max_date.date()]
     )
+    
+    # Convert selected dates back to datetime to compare with DataFrame
+    start_date = pd.to_datetime(start_date)
+    end_date = pd.to_datetime(end_date)
 
 day_main_df = day_df[(day_df["dteday"] >= str(start_date)) & 
                 (day_df["dteday"] <= str(end_date))]
