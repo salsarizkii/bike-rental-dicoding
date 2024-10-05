@@ -8,7 +8,7 @@ sns.set(style='dark')
 
 # function ambil sum_weather_count
 def sum_weather_count_df(df):
-    sum_weather_count = df.groupby(["weathersit"]).resample(rule='ME', on='dteday').agg({
+    sum_weather_count = df.groupby(["weathersit"]).resample(rule='D', on='dteday').agg({
         'cnt': 'sum'
     }).reset_index()
     
@@ -16,7 +16,7 @@ def sum_weather_count_df(df):
 
 # function ambil peak_per_hour
 def peak_per_hour_df(df):
-    peak_per_hour = df.groupby(["hr"]).resample(rule='ME', on='dteday').agg({
+    peak_per_hour = df.groupby(["hr"]).resample(rule='D', on='dteday').agg({
         'cnt': 'sum'
     }).reset_index()
     
